@@ -19,22 +19,13 @@ $ Noise\ Signal = Enhanced\ Signal - Reference\ Signal $
 
 3. Log-Likelihood Ratio (LLR)
 
-    $d_{LLR}(\vec{a_c}, \vec{a_p}) = log{\Large(} 
-        \dfrac{\vec{a_p}R_c\vec{a_p}^T}{\vec{a_c}R_c\vec{a_c}^T} 
-        {\Large )}, [11]$
+    $d_{LLR}(\vec{a_c}, \vec{a_p}) = log{\Large(}\dfrac{\vec{a_p}R_c\vec{a_p}^T}{\vec{a_c}R_c\vec{a_c}^T}{\Large )}, [11]$
 
     $\vec{a_c}$ is the LPC vector of the reference speech signal frame and $\vec{a_c}$ is the LPC vector of the enhanced speech signal frame. $R_c$ is the autocorrelation matrix of the original speech signal. In [11, 13], only the smallest 95% of the fram LLR values were used to compute the average LLR value.
 
 4. Itakura-Saito distance measure (IS)
 
-    $d_{IS}(\vec{a_c}, \vec{a_p}) = 
-        \dfrac{\sigma_c^2}{\sigma_p^2}
-        {\Large(} 
-        \dfrac{\vec{a_p}R_c\vec{a_p}^T}{\vec{a_c}R_c\vec{a_c}^T} 
-        {\Large )}
-        +log{\Large (}
-        \dfrac{\sigma_c^2}{\sigma_p^2}
-        {\Large )} -1, [11]$
+    $d_{IS}(\vec{a_c}, \vec{a_p}) = \dfrac{\sigma_c^2}{\sigma_p^2}{\Large(} \dfrac{\vec{a_p}R_c\vec{a_p}^T}{\vec{a_c}R_c\vec{a_c}^T} {\Large )} + log{\Large (}\dfrac{\sigma_c^2}{\sigma_p^2}{\Large )} -1, [11]$
 
     $\sigma_c^2,\ \sigma_p^2$ are the LPC gains of the clean and enhanced signals. In [11], The IS values were limited in the range of [0, 100], which was necessary in order to minimize the number of outliers
 
@@ -44,24 +35,19 @@ $ Noise\ Signal = Enhanced\ Signal - Reference\ Signal $
     
     $a_m$ is LPC coeeficients and the cepstrum distance,
 
-    $d_{CEP}(\vec{c_c}, \vec{c_p}) = \dfrac{10}{log10} 
-        \sqrt{2\displaystyle\sum_{k=1}^p [c_c(k)-c_p(k)]^2}$
+    $d_{CEP}(\vec{c_c}, \vec{c_p}) = \dfrac{10}{log10} \sqrt{2\displaystyle\sum_{k=1}^p [c_c(k)-c_p(k)]^2}$
 
     $\vec{c_c}, \vec{c_p}$ are the cepstrum coeeficient vector, which means same as convolution with frame and LPC coefficients. In [11], this was limited in the range of [0, 10], which was necessary in order to minimize the number of outliers
 
 6. Frequency-weighted segmental SNR (fwSNRseg)
 
-    $fwSNRseg = \dfrac{10}{M} \times  
-        {\Large\displaystyle\sum_{m=1}^{M-1}} 
-        \dfrac{\sum_{j=1}^K W(j,m)log_{10}\frac{|X(j,m)|^2}{(|X(j,m)| - |\bar X(j,m)|)^2}}{ \sum_{j=1}^K  W(j, m)}, [11, 13]$
+    $fwSNRseg = \dfrac{10}{M} \times {\Large\displaystyle\sum_{m=1}^{M-1}} \dfrac{\sum_{j=1}^K W(j,m)log_{10}\frac{|X(j,m)|^2}{(|X(j,m)| - |\bar X(j,m)|)^2}}{ \sum_{j=1}^K  W(j, m)}, [11, 13]$
 
     In [11], it is used the specific window method and band. In the example, it also implies transfroming to octave band and window in [3].
 
 7. Weighted spectral slope (WSS) 
 
-    $d_{WSS} = \dfrac{1}{M} \displaystyle\sum_{m=1}^{M-1}
-        \dfrac{\sum_{j=1}^K W(j,m)(S_c(j,m)-S_p(j,m))^2}
-        {\sum_{j=1}^K W(j,m)^2}, [11]$
+    $d_{WSS} = \dfrac{1}{M} \displaystyle\sum_{m=1}^{M-1} \dfrac{\sum_{j=1}^K W(j,m)(S_c(j,m)-S_p(j,m))^2}{\sum_{j=1}^K W(j,m)^2}, [11]$
 
     W(j,m) are the weights, which computed in [2], K and M is defined depending on the number of bands. $S_c(j,m),\ S_p(j,m)$ are the splectral slopes for jth frequench and at frame m of clean and enhanced signals.
 
@@ -74,10 +60,7 @@ $ Noise\ Signal = Enhanced\ Signal - Reference\ Signal $
 9. Scale-Invariant Signal Distortion Ratio(SI-SDR)   
     > <span style="font-size:80%"> Metric 9 example is from PytorchLightning Metrics[1].
     
-    $SI{\small-}SDR = 10log_{10} {\LARGE (} 
-        \dfrac{||\dfrac{\hat s^T s}{||s||^2}s||^2}
-        {||\dfrac{\hat s^T s}{||s||^2}s-\hat s||^2}
-        {\LARGE )}$
+    $SI{\small-}SDR = 10log_{10} {\LARGE (} \dfrac{||\dfrac{\hat s^T s}{||s||^2}s||^2}{||\dfrac{\hat s^T s}{||s||^2}s-\hat s||^2}{\LARGE )}$
 
     It is also called as Scale-Invariant Source-to-Noise Ratio(SI-SNR)[1]. This replace SDR's 512-tap FIR to scaling. 
 

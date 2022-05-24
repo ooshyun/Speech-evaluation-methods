@@ -1,3 +1,7 @@
 **
 !src/
 !*.py
+!*.md
+!LICENSE
+!freeze.yml
+!*.txt

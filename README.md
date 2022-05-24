@@ -25,13 +25,13 @@ $ Noise\ Signal = Enhanced\ Signal - Reference\ Signal $
 
 4. Itakura-Saito distance measure (IS)
 
-    $d_{IS}(\vec{a_c}, \vec{a_p}) = \dfrac{\sigma_c^2}{\sigma_p^2}{\Large(} \dfrac{\vec{a_p}R_c\vec{a_p}^T}{\vec{a_c}R_c\vec{a_c}^T} {\Large )} + log{\Large (}\dfrac{\sigma_c^2}{\sigma_p^2}{\Large )} -1, [11]$
+    $d_{IS}(\vec{a_c}, \vec{a_p}) = \dfrac{\sigma_c^2}{\sigma_p^2}{\Large(} \dfrac{\vec{a_p}R_c\vec{a_p}^T}{\vec{a_c}R_c\vec{a_c}^T} {\Large )} + log{\Large (}\dfrac{\sigma_c^2}{\sigma_p^2}{\Large )} -1,\ [11]$
 
     $\sigma_c^2,\ \sigma_p^2$ are the LPC gains of the clean and enhanced signals. In [11], The IS values were limited in the range of [0, 100], which was necessary in order to minimize the number of outliers
 
 5. Cepstrum distance measures (CEP)
     
-    $c(m) = a_m + \displaystyle\sum_{k=1}^{m-1} \dfrac{k}{m}c(k)a_{m-k},\ 1 \leq n \leq p, \ [11]$
+    $c(m) = a_m + \displaystyle\sum_{k=1}^{m-1} \dfrac{k}{m}c(k)a_{m-k},\ 1 \leq n \leq p,\ [11]$
     
     $a_m$ is LPC coeeficients and the cepstrum distance,
 
@@ -41,13 +41,13 @@ $ Noise\ Signal = Enhanced\ Signal - Reference\ Signal $
 
 6. Frequency-weighted segmental SNR (fwSNRseg)
 
-    $fwSNRseg = \dfrac{10}{M} \times {\Large\displaystyle\sum_{m=1}^{M-1}} \dfrac{\sum_{j=1}^K W(j,m)log_{10}\frac{|X(j,m)|^2}{(|X(j,m)| - |\bar X(j,m)|)^2}}{ \sum_{j=1}^K  W(j, m)}, [11, 13]$
+    $fwSNRseg = \dfrac{10}{M} \times {\Large\displaystyle\sum_{m=1}^{M-1}} \dfrac{\displaystyle\sum_{j=1}^K W(j,m)log_{10}\frac{|X(j,m)|^2}{(|X(j,m)| - |\bar X(j,m)|)^2}}{ \displaystyle\sum_{j=1}^K  W(j, m)}, [11, 13]$
 
     In [11], it is used the specific window method and band. In the example, it also implies transfroming to octave band and window in [3].
 
 7. Weighted spectral slope (WSS) 
 
-    $d_{WSS} = \dfrac{1}{M} \displaystyle\sum_{m=1}^{M-1} \dfrac{\sum_{j=1}^K W(j,m)(S_c(j,m)-S_p(j,m))^2}{\sum_{j=1}^K W(j,m)^2}, [11]$
+    $d_{WSS} = \dfrac{1}{M} \displaystyle\sum_{m=1}^{M-1} \dfrac{\displaystyle\sum_{j=1}^K W(j,m)(S_c(j,m)-S_p(j,m))^2}{\displaystyle\sum_{j=1}^K W(j,m)^2}, [11]$
 
     W(j,m) are the weights, which computed in [2], K and M is defined depending on the number of bands. $S_c(j,m),\ S_p(j,m)$ are the splectral slopes for jth frequench and at frame m of clean and enhanced signals.
 

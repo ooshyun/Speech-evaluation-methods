@@ -11,9 +11,7 @@ $ Noise\ Signal = Enhanced\ Signal - Reference\ Signal $
 
 1. Signal to Noise Ratio (SNR)
 
-    $ 
-        SNR_{dB} = log_{10} \dfrac{P_{Signal}}{P_{Noise}}
-    $
+    $SNR_{dB} = log_{10} \dfrac{P_{Signal}}{P_{Noise}}$
 
 
 2. Segmental Signal to Noise Ratio (SegSNR)

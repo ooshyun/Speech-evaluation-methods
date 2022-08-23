@@ -1,7 +1,7 @@
 from .stoi import estimate_stoi, resample_oct
 from .snr import (
     estimate_snr,
-    estimate_psnr,
+#     estimate_psnr,
     estimate_segsnr,
     estimate_llr,
     estimate_is,

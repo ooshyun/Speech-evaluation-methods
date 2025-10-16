@@ -3,6 +3,30 @@ Evaluation Metrics for Speech
 
 This repository is for understanding several metrics evaluating the speech. Metrics 2-7 are based on in [Speech Enhancement book](https://www.routledge.com/Speech-Enhancement-Theory-and-Practice-Second-Edition/Loizou/p/book/9781138075573) written by Philipos C. Loizou and other metrics are based on each library release on python. The detail is described in the follows.
 
+## Installation
+
+### Quick Install
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/Speech-evaluation-methods.git
+cd Speech-evaluation-methods
+
+# Install in development mode
+pip install -e .
+
+# Or install dependencies only
+pip install -r requirements.txt
+```
+
+### Verify Installation
+
+```bash
+python verify_install.py
+```
+
+For detailed installation instructions, see [INSTALL.md](INSTALL.md).
+
 Evaluation Metrics
 ------------------
 In all metrics, it needs 3 parameter, **reference signal, enhanced signal and sampling frequency**, which is not actually require in library but just for coherence. All exampls are inclueded in **main.py**.
@@ -82,6 +106,10 @@ $ Noise\ Signal = Enhanced\ Signal - Reference\ Signal $
 12. Signal distortion(SIG), Background intrusiveness(BAK), The Overall Quality of Speech(OVRL)
     
     This is the combination of metrics PESQ, WSS, LLR, and SEGSNR[2].
+
+13. MultiResolutionSTFTLoss
+
+    Refer to [auraloss](https://github.com/csteinmetz1/auraloss) for more details.
 
 Test Audio Source
 ------------------

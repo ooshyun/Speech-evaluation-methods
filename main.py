@@ -20,13 +20,14 @@ from src import (
     estimate_stoi,
     estimate_pesq,
     estimate_composite,
+    estimate_mrsstftloss,
 )
 
 # PATH_CLEAN_SPEECH = ""                  # path/to/clean/audio
 # PATH_ENHANCED_SPEECH = ""               # path/to/denoised/audio
 
-PATH_CLEAN_SPEECH = "./data/wav/clean/sp01.wav"
-PATH_ENHANCED_SPEECH = "./data/wav/enhance/sp01_babble_sn10.wav"
+PATH_CLEAN_SPEECH = "./data/wav/clean/gt.wav"
+PATH_ENHANCED_SPEECH = "./data/wav/enhance/mix.wav"
 
 clean_speech, fs = sf.read(PATH_CLEAN_SPEECH)
 enhanced_speech, fs = sf.read(PATH_ENHANCED_SPEECH)
@@ -235,6 +236,11 @@ BAK, background intrusiveness: {bak_estimate}\n\
 OVA, mean opinion score: {ovrl_estimate}"
     )
 
+def test_mrsstftloss():
+    """Multi-Resolution STFT Loss"""
+    mrstft_loss = estimate_mrsstftloss(clean_speech, enhanced_speech, fs)
+    print("-" * 80)
+    print("Multi-Resolution STFT Loss Metric by Numpy: ", mrstft_loss)
 
 if __name__ == "__main__":
     if len(PATH_CLEAN_SPEECH) == 0 or len(PATH_ENHANCED_SPEECH) == 0:
@@ -245,21 +251,22 @@ if __name__ == "__main__":
     print("Test Evaluation for Speech related Metrics")
     print("-" * 80)
 
-    test_snr()
-    test_segsnr()
-    test_llr()
-    test_is()
-    test_cep()
-    test_fwssnr()
-    test_wss()
-    test_sdr_several_source()
-    test_sdr()
-    test_si_sdr()
-    test_si_snr()
-    test_stoi()
-    test_estoi()
-    test_pesq()
-    test_composite()
+    # test_snr()
+    # test_segsnr()
+    # test_llr()
+    # test_is()
+    # test_cep()
+    # test_fwssnr()
+    # test_wss()
+    # test_sdr_several_source()
+    # test_sdr()
+    # test_si_sdr()
+    # test_si_snr()
+    # test_stoi()
+    # test_estoi()
+    # test_pesq()
+    # test_composite()
+    test_mrsstftloss()
 
     print("-" * 80)
     print("Completed!")
